@@ -1,0 +1,285 @@
+/* static/style.css */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.container {
+    max-width: 960px; /* Wider container */
+    margin: 30px auto;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+}
+
+h1, h2, h3 {
+    color: #212529;
+    margin-bottom: 0.75em;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.2em;
+    color: #0056b3;
+}
+
+h2 { /* Used for form sections and score area */
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.4em;
+    margin-top: 1.5em;
+    margin-bottom: 1.2em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* --- Form Styling (index.html) --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 30px 40px; /* Row gap, Column gap */
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+    }
+}
+
+.form-section { padding-bottom: 15px; }
+
+form div:not(.radio-group) { margin-bottom: 20px; }
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #495057;
+}
+
+input[type=number], select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type=number]:focus, select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.radio-group { margin-bottom: 20px; }
+.radio-group label { display: inline-block; font-weight: normal; margin-right: 20px; cursor: pointer; }
+.radio-group input[type=radio] { margin-right: 5px; cursor: pointer; vertical-align: middle; }
+
+form small { display: block; margin-top: 4px; font-size: 0.85em; color: #6c757d; }
+
+.form-actions { text-align: center; margin-top: 30px; grid-column: 1 / -1; } /* Span grid columns */
+
+button[type=submit], .button-link {
+    display: inline-block;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    min-width: 150px;
+}
+button[type=submit] { background-color: #007bff; }
+button[type=submit]:hover { background-color: #0056b3; color: white; }
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.topbar-brand {
+    font-weight: 700;
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.topbar-user {
+    color: #495057;
+    font-weight: 600;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.topbar-button {
+    background-color: #6c757d;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    min-width: unset;
+}
+
+.topbar-button:hover {
+    background-color: #5a6268;
+    color: white;
+}
+
+.topbar-link {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.topbar-link:hover { text-decoration: underline; }
+
+.flash-error, .flash-warning {
+    color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb;
+    padding: 12px 15px; margin-bottom: 20px; border-radius: 5px;
+}
+.flash-warning { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+.flash-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+
+/* --- Results Page Styling (results.html) --- */
+.results-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: Stack */
+    gap: 30px 40px;
+    margin-bottom: 30px;
+    align-items: start;
+}
+
+@media (min-width: 800px) { /* Apply 2-column layout */
+    .results-layout-grid {
+        grid-template-columns: minmax(200px, 1fr) 2fr;
+        grid-template-areas:
+            "score factors"
+            "score suggestions";
+        /* align-items: stretch;  <-- Remove or comment out if using sticky */
+        align-items: start; /* Keep this for top alignment initially */
+        position: relative; /* Needed for sticky positioning context if required */
+    }
+
+    .results-score-area {
+        grid-area: score;
+        /* --- Sticky Positioning --- */
+        position: sticky; /* Make it sticky */
+        top: 30px; /* Stick 30px from the top of its container (the grid) */
+        align-self: start; /* Align the sticky item itself to the start */
+        /* --- Keep previous centering styles --- */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Align content to top within the sticky box */
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        border-right: 1px solid #e9ecef;
+        margin-right: -20px;
+        padding-right: 40px;
+        height: calc(100vh - 60px); /* Optional: Limit height, e.g., viewport height minus top/bottom margins/padding */
+        max-height: 500px; /* Optional: Set a max-height */
+        overflow-y: auto; /* Add scroll within the score box if its content exceeds max-height */
+    }
+    .results-factors-area { grid-area: factors; padding-bottom: 15px; }
+    .results-suggestions-area { grid-area: suggestions; }
+}
+
+
+/* Score Area Styling (General - applies both mobile and desktop) */
+.results-score-area h2 { border-bottom: none; margin-bottom: 0.5em; font-size: 1.3em; color: #495057; }
+.risk-score { font-size: 3.5em; font-weight: 700; margin-bottom: 0.1em; padding: 0; line-height: 1.1; }
+.risk-score.low { color: #198754; }
+.risk-score.medium { color: #ffc107; }
+.risk-score.high { color: #dc3545; }
+
+/* Factors and Suggestions Area Styling */
+.results-factors-area h3, .results-suggestions-area h3 {
+    margin-top: 0; color: #0056b3; display: flex; align-items: center;
+    font-size: 1.2em; border-bottom: 1px solid #dee2e6; padding-bottom: 0.4em; margin-bottom: 1em;
+}
+.results-factors-area ul, .results-suggestions-area ul { list-style: none; padding-left: 0; margin-top: 0; margin-bottom: 0; } /* Use list-style: none if JS adds items */
+.results-factors-area li, .results-suggestions-area li { margin-bottom: 12px; color: #495057; padding-left: 1.2em; position: relative; }
+/* Add custom bullet point */
+.results-factors-area li::before, .results-suggestions-area li::before {
+    content: "•"; /* Bullet character */
+    color: #007bff; /* Bullet color */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.2em; /* Position bullet */
+    position: absolute;
+    left: 0;
+}
+
+.gemini-logo { height: 1.2em; width: auto; margin-left: 10px; vertical-align: middle; }
+
+
+/* --- Generating Indicator Styles --- */
+.generating-indicator { font-style: italic; color: #6c757d; padding: 15px 0; display: flex; align-items: center; }
+.spinner { display: inline-block; border: 3px solid rgba(0, 0, 0, 0.1); border-left-color: #007bff; border-radius: 50%; width: 16px; height: 16px; animation: spin 1s linear infinite; margin-left: 10px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.js-enabled .results-factors-area ul, .js-enabled .results-suggestions-area ul { display: none; }
+.js-enabled .generating-indicator { display: flex; }
+.no-js .generating-indicator { display: none; }
+.no-js .results-factors-area ul, .no-js .results-suggestions-area ul { display: block; }
+
+
+/* --- Disclaimer and Actions --- */
+.disclaimer { margin-top: 30px; padding: 15px 20px; background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; border-radius: 5px; font-size: 0.9em; }
+.disclaimer strong { color: #664d03; }
+.results-actions { text-align: center; margin-top: 30px; }
+.button-link { background-color: #6c757d; /* Grey for back button */ } /* Inherits base button styles */
+.button-link:hover { background-color: #5a6268; color: white; }
